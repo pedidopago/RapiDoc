@@ -11816,7 +11816,7 @@ function groupByTags(openApiSpec, sortEndpointsBy, generateMissingTags = false, 
   const tags = openApiSpec.tags && Array.isArray(openApiSpec.tags) ? openApiSpec.tags.map(v => ({
     show: true,
     elementId: `tag--${v.name.replace(invalidCharsRegEx, '-')}`,
-    name: v.name,
+    name: v['x-displayName'] || v.name,
     description: v.description || '',
     headers: v.description ? getHeadersFromMarkdown(v.description) : [],
     paths: [],
@@ -26661,7 +26661,7 @@ function getType(str) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("58f69ab8c977033c5164")
+/******/ 		__webpack_require__.h = () => ("d7da3ccbf66e949e9baa")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

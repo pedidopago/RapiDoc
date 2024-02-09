@@ -245,7 +245,7 @@ function groupByTags(openApiSpec, sortEndpointsBy, generateMissingTags = false, 
     ? openApiSpec.tags.map((v) => ({
       show: true,
       elementId: `tag--${v.name.replace(invalidCharsRegEx, '-')}`,
-      name: v.name,
+      name: v['x-displayName'] || v.name,
       description: v.description || '',
       headers: v.description ? getHeadersFromMarkdown(v.description) : [],
       paths: [],
